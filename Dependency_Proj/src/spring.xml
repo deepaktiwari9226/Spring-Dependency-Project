@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- Engine Bean -->
+<bean id="en" class="org.btm.dependencyApp.Engine">
+<property name="engine_number" value="4524552"/>
+<property name="horse_power" value="452"/>
+<property name="engine_type" value="Petrol"/>
+</bean>
+<!-- BMW Bean -->
+<bean id="bm" class="org.btm.dependencyApp.BmwImpl">
+<property name="id" value="822"/>
+<property name="color" value="Red"/>
+<!-- Whenever we use Class Type Reference then we need to use reference attribute instead of value -->
+<property name="engine" ref="en"/>
+<property name="wheels">
+<list>
+<value>Wheels1</value>
+<value>Wheels2</value>
+<value>Wheels3</value>
+<value>Wheels4</value>
+</list>
+</property>
+</bean>
+<!-- Nano Bean -->
+<bean id="nn" class="org.btm.dependencyApp.NanoImpl">
+</bean>
+</beans>
